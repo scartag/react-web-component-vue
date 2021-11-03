@@ -16,7 +16,7 @@
 
         </div>
         <div class="col-md-9">
-          <test-app :color="selectedColor" :msg="message"></test-app>
+          <direflow-setup :color="selectedColor" :msg="message"></direflow-setup>
         </div>
       </div>
     </div>
@@ -33,7 +33,7 @@ export default {
   data() {
     return {
       selectedColor: 'transparent',
-      message: '',
+      message: 'We can do all we want',
       colors:  [{value: 'transparent', label:'Transparent'}, {value: 'blue', label: 'Blue'}, {value: 'yellow', label: 'Yellow'}, {value: 'pink', label: 'Pink'}]
     };
   }

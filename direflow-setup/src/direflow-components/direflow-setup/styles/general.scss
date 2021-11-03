@@ -1,0 +1,135 @@
+$tertiaryColor: #ea5f57;
+
+.react-flow__handle.target {
+  background: #0041d0;
+  width: 10px;
+  height: 10px;
+}
+.react-flow__handle.source {
+  background: $tertiaryColor;
+  width: 10px;
+  height: 10px;
+}
+
+.react-flow__node.selected > div {
+  &:not(.diamond):not(.react-flow__handle) {
+    outline: 1px solid $tertiaryColor;
+  }
+  &.diamond:after {
+    outline: 1px solid $tertiaryColor;
+  }
+}
+.react-flow__edge {
+  .react-flow__edge-path {
+    stroke-width: 1.5;
+    stroke: #1e0a45;
+  }
+  &.selected {
+    .react-flow__edge-path {
+      stroke: $tertiaryColor !important;
+    }
+  }
+}
+
+.dndflow {
+  flex-direction: column;
+  display: flex;
+  height: 100vh;
+}
+
+.dndflow aside {
+  border-right: 1px solid #eee;
+  padding: 2rem 1rem;
+  font-size: 12px;
+  background: #fcfcfc;
+  height: 100vh;
+}
+
+.dndflow aside > * {
+  margin-bottom: 10px;
+  cursor: grab;
+}
+
+.dndflow aside .description {
+  margin-bottom: 10px;
+}
+
+.dndflow .reactflow-wrapper {
+  flex-grow: 1;
+  height: 100%;
+  width: 1px solid black;
+}
+
+@media screen and (min-width: 768px) {
+  .dndflow {
+    flex-direction: row;
+  }
+
+  .dndflow aside {
+    width: 20%;
+    max-width: 350px;
+    border-left: 1px solid grey;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .dndflow aside {
+    border-top: 1px solid gray;
+  }
+}
+
+.dndnode:not(.diamond) {
+  border-width: 1px;
+  border-style: solid;
+  padding: 5px;
+  border-radius: 3px;
+  &.input {
+    border-color: #0041d0;
+  }
+  &.output {
+    border-color: #ff0072;
+  }
+}
+
+.diamond {
+  position: relative;
+  height: 100px;
+  width: 100px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &.dndnode {
+    z-index: 3;
+    margin-left: 20px;
+  }
+  &:after {
+    position: absolute;
+    content: "";
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    transform: rotateX(45deg) rotateZ(45deg);
+    background-color: #fdffdf;
+    border: 1px solid black;
+    z-index: -1;
+  }
+}
+.circle {
+  border-radius: 100%;
+  width: 80px;
+  height: 80px;
+  background-color: #e4e4e4;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: gray;
+}
+
+div[disabled]
+{
+  pointer-events: none;
+  opacity: 0.9;
+}
